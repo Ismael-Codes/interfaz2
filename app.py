@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (
     QMainWindow,
     QFileDialog
 )
-
+#deivid fork
 from principal import Ui_MainWindow
 
 
