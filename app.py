@@ -17,6 +17,7 @@ class Window(QMainWindow, Ui_MainWindow):
         super().__init__()
 
         self.setupUi(self)
+        self.setWindowTitle("Editor de archivos")
 
         self.botonAbrir.clicked.connect(self.abrir_archivo)
         self.botonComando.clicked.connect(self.ejecutarComando)
