@@ -1,3 +1,5 @@
+
+
 # Form implementation generated from reading ui file '.\interfazArchivo.ui'
 #
 # Created by: PyQt6 UI code generator 6.12.0
