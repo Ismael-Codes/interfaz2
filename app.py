@@ -1,53 +1,52 @@
-import sys
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 
-import subprocess
-
-from PyQt6.QtWidgets import (
-    QApplication,
-    QMainWindow,
-    QFileDialog
-)
-#deivid fork
-from principal import Ui_MainWindow
+from interfazArchivo_ui import Ui_MainWindow
 
 
 class Window(QMainWindow, Ui_MainWindow):
-
-    def __init__(self):
-        super().__init__()
-
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.setupUi(self)
-        self.setWindowTitle("Editor de archivos")
+        self.connectSignalsSlots()
 
-        self.botonAbrir.clicked.connect(self.abrir_archivo)
-        self.botonComando.clicked.connect(self.ejecutarComando)
+    def connectSignalsSlots(self):
+        self.btnGuardar.clicked.connect(self.guardarDatos)
+        self.btnLimpiar.clicked.connect(self.limpiarCampos)
+        self.btnSalir.clicked.connect(self.close)
 
-    def ejecutarComando(self):
+    def guardarDatos(self):
+        nombre = self.lineEditNombre.text().strip()
+        apellido = self.lineEditApellido.text().strip()
+        matricula = self.lineEditMatricula.text().strip()
+        telefono = self.lineEditTelefono.text().strip()
 
-        resultado = subprocess.run(["ls"], capture_output=True, text=True, shell=True)
+        # Validar que no haya campos vacíos
+        if nombre == "" or apellido == "" or matricula == "" or telefono == "":
+            QMessageBox.warning(
+                self,
+                "Campos incompletos",
+                "Por favor, llena todos los campos.",
+            )
+            return
 
-        print(resultado.stdout)
-        self.salidaConsola.setPlainText(resultado.stdout)
+        # Guardar en el archivo de texto (modo "a" = agrega al final)
+        with open("datos.txt", "a", encoding="utf-8") as archivo:
+            archivo.write(
+                f"Nombre: {nombre} | Apellido: {apellido} | "
+                f"Matricula: {matricula} | Telefono: {telefono}\n"
+            )
 
-    def abrir_archivo(self):
-
-        archivo, _ = QFileDialog.getOpenFileName(            self,
-            "Abrir archivo",
-            "",
-            "Archivos de texto (*.ism)"
+        QMessageBox.information(
+            self,
+            "Guardado",
+            "Los datos se guardaron correctamente.",
         )
+        self.statusbar.showMessage("Datos guardados en datos.txt", 3000)
+        self.limpiarCampos()
 
-        if archivo:
-            with open(archivo, "r", encoding="utf-8") as f:
-                contenido = f.read()
-
-            self.cajaTexto.setPlainText(contenido)
-            self.statusbar.showMessage(f"Archivo abierto: {archivo}")
-
-
-app = QApplication(sys.argv)
-
-window = Window()
-window.show()
-
-sys.exit(app.exec())
+    def limpiarCampos(self):
+        self.lineEditNombre.clear()
+        self.lineEditApellido.clear()
+        self.lineEditMatricula.clear()
+        self.lineEditTelefono.clear()
+        self.lineEditNombre.setFocus()
