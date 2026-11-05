@@ -1,13 +1,12 @@
 import sys
 
-import subprocess
-
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
-    QFileDialog
+    QFileDialog,
+    QMessageBox
 )
-#deivid fork
+
 from principal import Ui_MainWindow
 
 
@@ -18,20 +17,26 @@ class Window(QMainWindow, Ui_MainWindow):
 
         self.setupUi(self)
         self.setWindowTitle("Editor de archivos")
+        self.archivo_actual = None
 
-        self.botonAbrir.clicked.connect(self.abrir_archivo)
-        self.botonComando.clicked.connect(self.ejecutarComando)
+        self.action_New.triggered.connect(self.nuevo_archivo)
+        self.actionOpen.triggered.connect(self.abrir_archivo)
+        self.actionSave.triggered.connect(self.guardar_archivo)
+        self.actionExit.triggered.connect(self.close)
+        self.actionCopy.triggered.connect(self.plainTextEdit.copy)
+        self.actionPaste.triggered.connect(self.plainTextEdit.paste)
+        self.actionCut.triggered.connect(self.plainTextEdit.cut)
+        self.actionAbout.triggered.connect(self.acerca_de)
 
-    def ejecutarComando(self):
-
-        resultado = subprocess.run(["ls"], capture_output=True, text=True, shell=True)
-
-        print(resultado.stdout)
-        self.salidaConsola.setPlainText(resultado.stdout)
+    def nuevo_archivo(self):
+        self.plainTextEdit.clear()
+        self.archivo_actual = None
+        self.statusbar.showMessage("Archivo nuevo")
 
     def abrir_archivo(self):
 
-        archivo, _ = QFileDialog.getOpenFileName(            self,
+        archivo, _ = QFileDialog.getOpenFileName(
+            self,
             "Abrir archivo",
             "",
             "Archivos de texto (*.ism)"
@@ -41,8 +46,30 @@ class Window(QMainWindow, Ui_MainWindow):
             with open(archivo, "r", encoding="utf-8") as f:
                 contenido = f.read()
 
-            self.cajaTexto.setPlainText(contenido)
+            self.plainTextEdit.setPlainText(contenido)
+            self.archivo_actual = archivo
             self.statusbar.showMessage(f"Archivo abierto: {archivo}")
+
+    def guardar_archivo(self):
+
+        archivo = self.archivo_actual
+        if not archivo:
+            archivo, _ = QFileDialog.getSaveFileName(
+                self,
+                "Guardar archivo",
+                "",
+                "Archivos de texto (*.ism)"
+            )
+
+        if archivo:
+            with open(archivo, "w", encoding="utf-8") as f:
+                f.write(self.plainTextEdit.toPlainText())
+
+            self.archivo_actual = archivo
+            self.statusbar.showMessage(f"Archivo guardado: {archivo}")
+
+    def acerca_de(self):
+        QMessageBox.about(self, "Acerca de", "Editor de archivos")
 
 
 app = QApplication(sys.argv)
