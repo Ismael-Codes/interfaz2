@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormularioEstudiantes</class>
+ <widget class="QWidget" name="FormularioEstudiantes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1160</width>
+    <height>730</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>J.A.R.V.I.S - Registro de estudiantes</string>
+  </property>
+  <property name="styleSheet">
+   <string>QWidget { font-family: Segoe UI; font-size: 12px; color: #17263C; } QLineEdit { background: #FFFFFF; border: 1px solid #CBD9E7; border-radius: 8px; padding: 8px; } QLineEdit:focus { border: 2px solid #0A6ED1; } QPushButton { border-radius: 8px; padding: 7px; font-weight: 600; } QPushButton:hover { background-color: #D9EAFB; } QTableWidget { background: white; border: 1px solid #DAE4EE; gridline-color: #E7EFF7; }</string>
+  </property>
+  <widget class="QFrame" name="barraSuperior">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1160</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: #071C32; color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tituloMarca">
+   <property name="geometry">
+    <rect>
+     <x>34</x>
+     <y>12</y>
+     <width>400</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: white; font-weight: bold; font-size: 25px; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="subMarca">
+   <property name="geometry">
+    <rect>
+     <x>36</x>
+     <y>49</y>
+     <width>400</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #A7C9E9; font-size: 10px; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="estadoSistema">
+   <property name="geometry">
+    <rect>
+     <x>915</x>
+     <y>27</y>
+     <width>210</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #8FE7FA; font-weight: bold; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string>                                                            ●  </string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="subbarra">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>78</y>
+     <width>1160</width>
+     <height>56</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background: white; border-bottom: 1px solid #D9E5F2;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="seccion">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>95</y>
+     <width>700</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold; background: transparent; color: #17263C;</string>
+   </property>
+   <property name="text">
+    <string>   Registro de estudiantes</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="fondo">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>134</y>
+     <width>1160</width>
+     <height>596</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background: #F4F8FD;</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="menu">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>156</y>
+     <width>213</width>
+     <height>535</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: #FFFFFF; border: 1px solid #D9E5F2; border-radius: 12px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="menuTitulo">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>177</y>
+     <width>165</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #13243D; background: transparent; border: 0; font-weight: 600;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnRegistro">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>216</y>
+     <width>178</width>
+     <height>44</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: white; color: #14539A; border: 1px solid #B7CFE8; border-radius: 9px; font-size: 13px;</string>
+   </property>
+   <property name="text">
+    <string>Registro</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnVerArchivos">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>270</y>
+     <width>178</width>
+     <height>44</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: white; color: #14539A; border: 1px solid #B7CFE8; border-radius: 9px; font-size: 13px;</string>
+   </property>
+   <property name="text">
+    <string>Ver archivos</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="menuTools">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>364</y>
+     <width>170</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #697E97; background: transparent; border: 0;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="menuPython">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>399</y>
+     <width>170</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #697E97; background: transparent; border: 0;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="menuVersion">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>636</y>
+     <width>165</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #697E97; background: transparent; border: 0;</string>
+   </property>
+   <property name="text">
+    <string>J.A.R.V.I.S · v1.0</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="panelFormulario">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>156</y>
+     <width>617</width>
+     <height>535</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: #FFFFFF; border: 1px solid #D9E5F2; border-radius: 12px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tituloFormulario">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>182</y>
+     <width>550</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 27px; font-weight: bold; background: transparent; color: #17263C;</string>
+   </property>
+   <property name="text">
+    <string>Registro de estudiantes</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="indicaciones">
+   <property name="geometry">
+    <rect>
+     <x>287</x>
+     <y>230</y>
+     <width>550</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 12px; background: transparent; color: #647891;</string>
+   </property>
+   <property name="text">
+    <string>Completa los cuatro campos para guardar la información.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_nombre">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>274</y>
+     <width>510</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #13243D; background: transparent; border: 0; font-weight: 600;</string>
+   </property>
+   <property name="text">
+    <string>Nombre</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="campo_nombre">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>300</y>
+     <width>542</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ingresa tu nombre</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_apellido">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>356</y>
+     <width>510</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #13243D; background: transparent; border: 0; font-weight: 600;</string>
+   </property>
+   <property name="text">
+    <string>Apellido</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="campo_apellido">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>382</y>
+     <width>542</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ingresa tu apellido</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_matricula">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>438</y>
+     <width>510</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #13243D; background: transparent; border: 0; font-weight: 600;</string>
+   </property>
+   <property name="text">
+    <string>Matrícula</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="campo_matricula">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>464</y>
+     <width>542</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ingresa tu matrícula</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_telefono">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>520</y>
+     <width>510</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #13243D; background: transparent; border: 0; font-weight: 600;</string>
+   </property>
+   <property name="text">
+    <string>Teléfono</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="campo_telefono">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>546</y>
+     <width>542</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ingresa tu teléfono</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnGuardar">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>624</y>
+     <width>225</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: #0A6ED1; color: white; border: 0; border-radius: 9px; font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Guardar registro</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLimpiar">
+   <property name="geometry">
+    <rect>
+     <x>527</x>
+     <y>624</y>
+     <width>142</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: white; color: #14539A; border: 1px solid #B7CFE8; border-radius: 9px; font-size: 13px;</string>
+   </property>
+   <property name="text">
+    <string>Limpiar</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="panelEstado">
+   <property name="geometry">
+    <rect>
+     <x>887</x>
+     <y>156</y>
+     <width>245</width>
+     <height>302</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: #FFFFFF; border: 1px solid #D9E5F2; border-radius: 12px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="subEstado">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>179</y>
+     <width>215</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #697E97; background: transparent; border: 0;</string>
+   </property>
+   <property name="text">
+    <string>ESTADO DEL SISTEMA</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="estado">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>208</y>
+     <width>210</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 17px; font-weight: bold; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string>Formulario listo</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="salidaNombre">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>264</y>
+     <width>215</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #697E97; background: transparent; border: 0;</string>
+   </property>
+   <property name="text">
+    <string>ARCHIVO DE SALIDA</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="archivoNombre">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>290</y>
+     <width>215</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>color: #0A6ED1; font-size: 14px; font-weight: bold; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string>registros.txt</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="infoArchivos">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>329</y>
+     <width>209</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 11px; color: #657A91; background: transparent;</string>
+   </property>
+   <property name="text">
+    <string>Los registros se guardan en un archivo de texto.</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAccesoArchivos">
+   <property name="geometry">
+    <rect>
+     <x>903</x>
+     <y>385</y>
+     <width>208</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>background-color: white; color: #14539A; border: 1px solid #B7CFE8; border-radius: 9px; font-size: 13px;</string>
+   </property>
+   <property name="text">
+    <string>Ver archivos</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
